@@ -1,0 +1,43 @@
+[project]
+name = "jarvis-assistant"
+version = "0.1.0"
+description = "JARVIS: agente personal con permisos locales y clientes Windows/Android"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn>=0.34,<1",
+  "httpx>=0.28,<1",
+  "pydantic>=2.10,<3",
+  "platformdirs>=4.3,<5",
+  "psutil>=6,<8",
+  "pypdf>=5,<7",
+  "python-docx>=1.1,<2",
+  "cryptography>=44,<47",
+  "python-multipart>=0.0.20,<1",
+  "jsonschema>=4.23,<5",
+  "keyring>=25,<27; sys_platform == 'win32'",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "pytest-asyncio>=0.25,<2", "ruff>=0.11,<1"]
+
+[project.scripts]
+jarvis = "jarvis.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["backend/jarvis"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 110
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]

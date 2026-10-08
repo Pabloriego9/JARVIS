@@ -1,0 +1,11 @@
+{
+  "status": "failed",
+  "error_code": "authentication",
+  "user_message": "La credencial del proveedor no fue aceptada.",
+  "model": "gpt-6-astra",
+  "http": 401,
+  "provider_code": "invalid_api_key",
+  "request_id": "req_d2114219a68d4d2aa68c3091823a32a1",
+  "date": "2026-10-08T20:04:31.249539+00:00",
+  "error_mentions_secret_reference": true
+}

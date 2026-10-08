@@ -1,0 +1,6 @@
+00:00 +0: loading /workspace/JARVIS/apps/jarvis_app/test/app_test.dart
+00:00 +0: remote connections require HTTPS and reject credential URLs
+00:00 +1: action includes target, version and a deduplication key
+00:00 +2: home exposes setup and never invents a connected model
+00:03 +3: mobile layout supports large text without overflow
+00:03 +4: All tests passed!
