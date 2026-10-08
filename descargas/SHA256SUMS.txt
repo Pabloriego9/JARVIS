@@ -1,0 +1,2 @@
+2a5a72f295fcaea82967280c20d2647069012cb1573a5772bb4f35f6eb2c9361  JARVIS-Android-arm64-prueba.apk
+d5f2d079da36f228fed505df73518edcc2bd09f4b356a22ca1ac2e5a31bbd69c  JARVIS-codigo-fuente.zip

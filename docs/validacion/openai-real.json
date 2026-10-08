@@ -1,0 +1,19 @@
+{
+  "environment_published": true,
+  "secret_binding_saved": true,
+  "secret_variable_present": true,
+  "backend_started": true,
+  "conversation_verified": false,
+  "endpoint": "https://api.openai.com/v1/responses",
+  "http_status": 401,
+  "error_code": "invalid_api_key",
+  "request_id": "req_0372787ac0e3478184a61f8cb66a0961",
+  "date": "2026-10-08T13:58:31.029445+00:00",
+  "checks": {
+    "jarvis_streaming": "401 invalid_api_key",
+    "independent_curl_streaming": "401 invalid_api_key",
+    "independent_httpx_non_streaming": "401 invalid_api_key",
+    "models_without_authentication": 200
+  },
+  "interpretation": "La consulta de modelos también responde sin autenticación y no valida la clave. Los errores de conversación muestran parte de una referencia __SECRET del gestor. No se pudo confirmar si la sustitución del secreto se realiza correctamente; no atribuir el fallo con certeza al valor introducido por el usuario."
+}

@@ -1,0 +1,14 @@
+Running Gradle task 'assembleDebug'...                          
+WARNING: Your Android app project: app located at: /workspace/JARVIS/apps/jarvis_app/android/app/build.gradle.kts
+applies the Kotlin Gradle Plugin, which will cause build failures in future versions of Flutter.
+Please migrate your app to Built-in Kotlin using this guide: https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-app-developers
+
+Checking the license for package CMake 3.22.1 in /workspace/.toolchains/android/licenses
+License for package CMake 3.22.1 accepted.
+Preparing "Install CMake 3.22.1 v.3.22.1".
+"Install CMake 3.22.1 v.3.22.1" ready.
+Installing CMake 3.22.1 in /workspace/.toolchains/android/cmake/3.22.1
+"Install CMake 3.22.1 v.3.22.1" complete.
+"Install CMake 3.22.1 v.3.22.1" finished.
+Running Gradle task 'assembleDebug'...                             73.6s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk

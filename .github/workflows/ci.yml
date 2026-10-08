@@ -1,0 +1,60 @@
+name: Validate JARVIS
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: '3.12'
+      - run: uv sync --frozen --extra dev
+      - run: uv run ruff check backend tests scripts
+      - run: uv run pytest -q
+  flutter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.47.6'
+          cache: true
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - working-directory: apps/jarvis_app
+        run: |
+          flutter pub get --enforce-lockfile
+          flutter analyze
+          flutter test
+          flutter build apk --debug --target-platform android-arm64
+      - uses: actions/upload-artifact@v4
+        with:
+          name: JARVIS-Android-debug
+          path: apps/jarvis_app/build/app/outputs/flutter-apk/app-debug.apk
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.47.6'
+          cache: true
+      - shell: pwsh
+        run: ./scripts/build-windows.ps1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: JARVIS-Windows
+          path: artifacts/*
